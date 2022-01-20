@@ -1,0 +1,86 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+<form action="/thanks/" method="POST" enctype="multipart/form-data" id="survey-form" class="post-form">  
+{% csrf_token %} 
+  <div class="wrapper">  
+    <p>
+      How would you rate your experience with our IT service?
+    </p>
+    <p>
+      ကျွန်ုပ်တို့၏ IT service အပေါ် သင်၏အတွေ့အကြုံအရ ခြုံငုံ၍ မည်သို့အဆင့်သတ်မှတ် မည်နည်း။
+    </p>
+    <div class="section">
+      <ul class="emojis">
+      {% load static %}
+        <li class="slide-emoji"><img src= {% static 'emoji/emoji-1.png' %} alt=""></li>
+        <li><img src={% static 'emoji/emoji-2.png' %} alt=""></li>
+        <li><img src={% static 'emoji/emoji-3.png' %} alt=""></li>
+        <li><img src={% static 'emoji/emoji-4.png' %} alt=""></li>
+        <li><img src={% static 'emoji/emoji-5.png' %} alt=""></li>
+      </ul>
+    </div>
+    
+      <div class="slider">
+    
+      <div class="thumb"><span></span></div>
+      <div class="progress-bar"></div>
+      <input type="range" id="points" name="points" min="0" value="50" max="100">
+    
+    </div>
+    
+    <br>
+    <p>
+      Do you have any comments, questions or concern? 
+    </p>
+    <input type="hidden" id="paraid" name="paraid" value="{{ paraid }}"></input>
+    <p>
+      သင့်တွင် မှတ်ချက်များ၊ မေးခွန်းများ (သို့မဟုတ်) ပြဿနာများရှိပါက အောက်တွင်ရေးပါ။
+    </p>
+    <textarea id="desc" name="desc" rows="4" cols="60"></textarea>
+    <button type="submit" class="btn btn-default">Submit</button> 
+  </div>  
+</form>
+  <script>
+    const body = document.querySelector("body");
+    const emoji = document.querySelector(".slide-emoji");
+    const input = document.querySelector("input");
+    const bar = document.querySelector(".progress-bar");
+    const thumb = document.querySelector(".thumb");
+    input.oninput = ()=>{
+      let sliderValue = input.value;
+      thumb.style.left = sliderValue + '%';
+      bar.style.width = sliderValue + '%';
+      if(sliderValue < 10){
+        emoji.style.marginTop = "0px";
+        body.classList.add("angry");
+        body.classList.remove("confuse");
+        body.classList.remove("like");
+        body.classList.remove("love");
+      }
+      if(sliderValue >= 30 && sliderValue < 50){
+        emoji.style.marginTop = "-140px";
+        body.classList.add("confuse");
+        body.classList.remove("angry");
+        body.classList.remove("like");
+        body.classList.remove("love");
+      }
+      if(sliderValue >= 50 && sliderValue < 70){
+        emoji.style.marginTop = "-280px";
+      }
+      if(sliderValue >= 70){
+        emoji.style.marginTop = "-420px";
+        body.classList.add("like");
+        body.classList.remove("confuse");
+        body.classList.remove("angry");
+        body.classList.remove("love");
+      }
+      if(sliderValue >= 100){
+        emoji.style.marginTop = "-560px";
+      }
+    }
+  </script>
+
+{% endblock %}
+
