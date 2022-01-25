@@ -21,6 +21,12 @@ input {
     color: var(--fg);
     font: 0.5em 'Oswald', sans-serif;
 }
+
+.logo {
+    max-width: 560px;
+    width: 90%;
+}
+
 body {
     background: linear-gradient(140.53deg, #bbdff4 0%, #fedbcc 100%);
     /* background: var(--bg); */
@@ -51,7 +57,7 @@ img {
 .form_control__textarea {
     width: 100%;
     background-color: rgba(76, 165, 242, 0.1);
-    /* border-bottom: 2px solid var(--track); */
+    border-bottom: 2px solid transparent;
     font-family: inherit;
     padding: 20px;
 }
@@ -315,4 +321,35 @@ img {
 .btn:active {
     box-shadow: #d6d6e7 0 3px 7px inset;
     transform: translateY(2px);
+}
+
+@media (max-width: 800px) {
+    form {
+        width: 100%;
+    }
+}
+
+@media (max-width: 550px) {
+    body {
+        padding: 30px;
+        font-size: 0.4em;
+    }
+
+    .form_control {
+        padding: 20px 25px;
+        box-shadow: inset 5px 0px 2px #4ca4f2;
+        border-radius: 30px;
+        margin: 30px auto;
+    }
+
+    .form_control__textarea {
+        padding: 10px;
+    }
+
+    .btn {
+        border-radius: 10px;
+        height: 3em;
+        width: 6em;
+        font-size: 15px;
+    }
 }

@@ -4,9 +4,9 @@
 <form action="/thanks/" method="POST" enctype="multipart/form-data" id="survey-form" class="post-form">  
 {% csrf_token %} 
 
-  <div class="wrapper">  
+  {% comment %} <div class="wrapper">   {% endcomment %}
   {% load static %}
-  <img style="margin: 0px auto; display: block;" src="{% static 'css/img/cover_photo.png' %}" alt="Seagram Myanmar" width="560px" >
+  <img style="margin: 0px auto; display: block;" src="{% static 'css/img/cover_photo.png' %}" alt="Seagram Myanmar" class="logo" >
 
   	<div class="form_control">
 		<p>
@@ -43,7 +43,7 @@
 
     <button type="submit" class="btn submit-success">Submit</button> 
     
-  </div>  
+  {% comment %} </div>   {% endcomment %}
 </form>
 
 <script>
