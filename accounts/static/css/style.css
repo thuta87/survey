@@ -67,6 +67,20 @@ img {
     border-bottom: 2px solid var(--track);
 }
 
+.form_control__input {
+    width: 100%;
+    background-color: rgba(76, 165, 242, 0.1);
+    border-bottom: 2px solid transparent;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 20px;
+}
+
+.form_control__input:focus {
+    outline: 0;
+    border-bottom: 2px solid var(--track);
+}
+
 .bg {
     /* The image used */
     background-image: url('img/thanks.jpg');
