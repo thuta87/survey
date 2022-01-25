@@ -1,46 +1,46 @@
 {% extends 'accounts/main.html' %}
 
 {% block content %}
-
 <form action="/thanks/" method="POST" enctype="multipart/form-data" id="survey-form" class="post-form">  
 {% csrf_token %} 
 
   <div class="wrapper">  
   {% load static %}
-  <img src="{% static 'css/img/cover_photo.png' %}" alt="Seagram Myanmar" width="80%" height="40%">
+  <img style="margin: 0px auto; display: block;" src="{% static 'css/img/cover_photo.png' %}" alt="Seagram Myanmar" width="560px" >
 
-    <p>
-      How would you rate your experience with our IT service?
-    </p>
-    <p>
-      ကျွန်ုပ်တို့၏ IT service အပေါ် သင်၏အတွေ့အကြုံအရ ခြုံငုံ၍ မည်သို့အဆင့်သတ်မှတ် မည်နည်း။
-    </p>
+  	<div class="form_control">
+		<p>
+		How would you rate your experience with our IT service?
+		</p>
+		<p>
+		ကျွန်ုပ်တို့၏ IT service အပေါ် သင်၏အတွေ့အကြုံအရ ခြုံငုံ၍ မည်သို့အဆင့်သတ်မှတ် မည်နည်း။
+		</p>
 
-    <div class="rage" id="rageslider1">
-        <input class="rage__input" type="range" name="points" id="points" value="3" min="1" max="5">
-        <div class="rage__track"></div>
-        <canvas class="rage__flame-area"></canvas>
-        <div class="rage__face">
-          <div class="rage__face-eye"></div>
-          <div class="rage__face-eye"></div>
-          <div class="rage__face-mouth"></div>
-          <div class="rage__value" id="display">1</div>
-        </div>
-    </div>
+		<div class="rage" id="rageslider1" style="z-index: 1000">
+			<input class="rage__input" type="range" name="points" id="points" value="3" min="1" max="5">
+			<div class="rage__track"></div>
+			<canvas class="rage__flame-area"></canvas>
+			<div class="rage__face">
+			<div class="rage__face-eye"></div>
+			<div class="rage__face-eye"></div>
+			<div class="rage__face-mouth"></div>
+			<div class="rage__value" id="display">1</div>
+			</div>
+		</div>
+	</div>
 
-    <br>
-    <br>
-    <br>
-    
-    <p>
-      Do you have any comments, questions or concern? 
-    </p>
-    <input type="hidden" id="paraid" name="paraid" value="{{ paraid }}"></input>
-    <p>
-      သင့်တွင် မှတ်ချက်များ၊ မေးခွန်းများ (သို့မဟုတ်) ပြဿနာများရှိပါက အောက်တွင်ရေးပါ။
-    </p>
-    <textarea id="desc" name="desc" rows="4" cols="80"></textarea>
-    <p></p>
+	<div class="form_control">  
+		<p>
+		Do you have any comments, questions or concern? 
+		</p>
+		<input type="hidden" id="paraid" name="paraid" value="{{ paraid }}"></input>
+		<p>
+		သင့်တွင် မှတ်ချက်များ၊ မေးခွန်းများ (သို့မဟုတ်) ပြဿနာများရှိပါက အောက်တွင်ရေးပါ။
+		</p>
+		<textarea placeholder="Write anything..." class="form_control__textarea" id="desc" name="desc" rows="3" cols="80"></textarea>
+		{% comment %} <p></p> {% endcomment %}
+	</div>
+
     <button type="submit" class="btn submit-success">Submit</button> 
     
   </div>  
