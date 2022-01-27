@@ -1,20 +1,23 @@
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+{% extends 'accounts/main.html' %} 
+{% load static %} 
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+{% block css_files %} 
+    <link rel="stylesheet" href={% static 'css/thanks.css'%} /> 
+{% endblock %} 
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+{% block content %}
+    <div class="thank_you__container">
+        <div>
+            <h1>Thank You!</h1>
+            <p>
+                <strong>
+                   Your survey answers have been submitted. We value your feedback.
+                </strong>
+            </p>
 
-<div class="d-flex justify-content-center">
-<div class="jumbotron text-center ">
-  <h1 class="display-3">Thank You!</h1>
-  <p class="lead"><strong>Your survey answers have been submitted. We value your feedback.</strong></p>
-  <hr>
-  <p>
-    Having trouble? <a href="tel:+951654530">+95 1 654530 ext.145</a>
-  </p>
-</div>
-</div>
-
+            <br>
+            <hr />
+            <p>Having trouble? <a href="tel:+951654530">+95 1 654530 ext.145</a></p>
+        </div>
+    </div>
+{% endblock %}
