@@ -1,0 +1,23 @@
+.thank_you__container {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.thank_you__container h1 {
+    font-size: 2rem;
+}
+
+.thank_you__container p {
+    font-size: 0.5rem;
+}
+
+@media (max-width: 400px) {
+    .thank_you__container h1 {
+        font-size: 1.5rem;
+    }
+    
+}
